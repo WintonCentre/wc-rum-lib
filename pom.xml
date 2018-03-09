@@ -14,11 +14,11 @@
     </license>
   </licenses>
   <scm>
-    <connection>scm:git:git://github.com/gmp26/wc-rum-lib.git</connection>
-    <developerConnection>scm:git:ssh://git@github.com/gmp26/wc-rum-lib.git</developerConnection>
-    <tag>8d5174c7323385c65bf5c8d43c527e4f91e90ca2
+    <connection>scm:git:git://github.com/WintonCentre/wc-rum-lib.git</connection>
+    <developerConnection>scm:git:ssh://git@github.com/WintonCentre/wc-rum-lib.git</developerConnection>
+    <tag>75784ff4b517aaab4ce11fa681e7c85fdc6ff9c3
 </tag>
-    <url>https://github.com/gmp26/wc-rum-lib</url>
+    <url>https://github.com/WintonCentre/wc-rum-lib</url>
   </scm>
   <build>
     <sourceDirectory>src</sourceDirectory>
@@ -84,6 +84,11 @@
   </dependencyManagement>
   <dependencies>
     <dependency>
+      <groupId>cider</groupId>
+      <artifactId>cider-nrepl</artifactId>
+      <version>0.16.0</version>
+    </dependency>
+    <dependency>
       <groupId>org.clojure</groupId>
       <artifactId>clojure</artifactId>
       <version>1.9.0</version>
@@ -94,9 +99,53 @@
       <version>1.9.946</version>
     </dependency>
     <dependency>
+      <groupId>lein-cljsbuild</groupId>
+      <artifactId>lein-cljsbuild</artifactId>
+      <version>1.1.7</version>
+      <exclusions>
+        <exclusion>
+          <groupId>org.clojure</groupId>
+          <artifactId>clojure</artifactId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+    <dependency>
+      <groupId>sablono</groupId>
+      <artifactId>sablono</artifactId>
+      <version>0.8.3</version>
+    </dependency>
+    <dependency>
       <groupId>rum</groupId>
       <artifactId>rum</artifactId>
       <version>0.10.8</version>
+    </dependency>
+    <dependency>
+      <groupId>cljs-css-modules</groupId>
+      <artifactId>cljs-css-modules</artifactId>
+      <version>0.2.1</version>
+    </dependency>
+    <dependency>
+      <groupId>figwheel-sidecar</groupId>
+      <artifactId>figwheel-sidecar</artifactId>
+      <version>0.5.15</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>devcards</groupId>
+      <artifactId>devcards</artifactId>
+      <version>0.2.4</version>
+    </dependency>
+    <dependency>
+      <groupId>binaryage</groupId>
+      <artifactId>devtools</artifactId>
+      <version>0.9.9</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.cemerick</groupId>
+      <artifactId>piggieback</artifactId>
+      <version>0.2.2</version>
+      <scope>test</scope>
     </dependency>
   </dependencies>
 </project>

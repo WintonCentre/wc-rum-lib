@@ -8,6 +8,7 @@
                  [lein-cljsbuild "1.1.7" :exclusions [org.clojure/clojure]]
                  [sablono "0.8.3"]
                  [rum "0.10.8"]
+                 [cljs-css-modules "0.2.1"]
                  [figwheel-sidecar "0.5.15"]
                  [devcards "0.2.4"]
                  [binaryage/devtools "0.9.9"]]
