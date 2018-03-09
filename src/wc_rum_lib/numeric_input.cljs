@@ -6,7 +6,8 @@
 (defn handle-numeric-input [min max onChange e]
       (let [value (js/parseInt (.. e -target -value))
             value (if (error? value) min value)
-            value (if (<= value max) (if (>= value min) value min) max)]
+            ;value (if (<= value max) (if (>= value min) value min) max)
+            ]
            ; This is tricky;
            ;
            ; On change, we parse this new value and force our cursor state value back to 100, but his means
@@ -33,7 +34,7 @@
 
 (rum/defcs inc-dec-button < rum/static (rum/local nil ::timer)
            [state
-            {:keys [cursor increment onChange min max precision unit]
+            {:keys [cursor increment onChange min max]
              :as   props}]
            (let [[left-r right-r] (if (pos? increment) [10 0] [0 10])
                  start-timer (fn [e] (js/setInterval #(handle-inc @cursor onChange min max increment) 200))
@@ -64,7 +65,7 @@
 
 
 (rum/defcs numeric-input < rum/static rum/reactive
-           [state {:keys [input-ref onChange min max precision unit] :as props}]
+           [state {:keys [input-ref onChange min max] :as props}]
 
 
            (let [value (rum/react input-ref)]
@@ -84,13 +85,14 @@
                   (inc-dec-button (assoc props :increment -1 :cursor input-ref))
                   [:input
                    {:type      "text"
-                    :value     (str (if (<= value max) value (if (>= value min) value min)))
+                    :value     value                        ;(str (if (<= value max) value (if (>= value min) value min)))
                     :on-click  (partial handle-numeric-input min max onChange)
                     :on-change (partial handle-numeric-input min max onChange)
                     :style     {:width            "58px" :height "36px" :font-size "14px"
                                 :border-top       "2px solid #ddd"
                                 :border-left      "2px solid #ddd"
                                 :background-color (if (not= value "") "#CCEEF8" "#fff")
+                                :color (if (<= min value max) "black" "red")
                                 :padding          "0 0 4px 0"
                                 :text-align       "center"
                                 :font-weight      "bold"}
