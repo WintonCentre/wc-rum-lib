@@ -29,9 +29,10 @@
     ; reset the visible 1003 back to 100. So we must handle overflows and echo them to the DOM
     ; before dispatching them.
     (when-not (<= min value max)
-      (let [v (if (> min value) min max)]
+      (let [v (if (> min value) min max)
+            src-element (-> e .-nativeEvent .-srcElement)]
         (.log js/console "value " v)
-        (js/setTimeout #(goog.object.set (-> e .-nativeEvent .-srcElement) "value" (str v)) 1000)
+        (js/setTimeout #(goog.object.set src-element "value" (str v)) 1000)
         (onChange (str v))))
 
     ; dispatch the clipped value.
