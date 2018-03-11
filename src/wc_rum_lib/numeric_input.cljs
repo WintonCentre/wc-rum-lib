@@ -3,7 +3,7 @@
             [cljs-css-modules.macro :refer-macros [defstyle]]))
 
 (defstyle style
-  [".numeric-input" {:width      "130px"
+  ["#numeric-input" {:width      "130px"
                      :tab-index  1
                      :selectable true}
    [".incdec"
@@ -17,30 +17,32 @@
 
 (defn error? [value] (or (nil? value) (= "" value) (js/isNaN value)))
 
+; this can be global as there is only one input under focus at any one time
 (def timer (atom nil))
 
-(defn handle-numeric-input [min max onChange e]
+(defn handle-numeric-input [min max color onChange e]
   (let [el (-> e .-target)
         value (js/parseInt (.. e -target -value))
-        value (if (error? value) min value)
+        value (if (error? value) "" value)
         ]
-    ; This is tricky;
-    ;
-    ; On change, we parse this new value and force our cursor state value back to 100, but his means
-    ; that the React value has not changed and so we don't get another component update in which to
-    ; reset the visible 1003 back to 100. So we must handle overflows and echo them to the DOM
-    ; before dispatching them.
-    (if (<= min value max)
+    ; _very_ tricky to force in-range values that are editable here since they are not in-range while
+    ; partially entered. Hence the 500ms timeout needed to allow entry of a valid value. We aim to flag
+    ; incomplete or bad values in red, and delete them after 500ms.
+    (if (and (not (error? value)) (<= min value max))
+      ; in range
       (when @timer (js/clearTimeout @timer))
-      (let [v nil
+
+      ; out of range
+      (let [v ""
             src-element (-> e .-nativeEvent .-srcElement)]
-        (.log js/console "value " v)
         (reset! timer (js/setTimeout #(do
-                                        (goog.object.set el "value" nil) ;(str v))
-                                        (goog.object.set (goog.object.get src-element "style") "color" "black")
-                                        ;(.log js/console "el" (.. src-element -style -color))
+                                        ; this block must be idempotent as it may be called multiple times
+                                        (goog.object.set el "value" "")
+                                        (goog.object.set (goog.object.get src-element "style") "color" color)
+                                        (onChange "")
                                         ) 500))
-        (onChange (str v))))
+        ;(onChange "")
+        ))
 
     ; dispatch the clipped value.
     (onChange (str value)))
@@ -82,7 +84,7 @@
           :on-click      #(handle-inc @cursor onChange min max increment)}
       (if (pos? increment) "+" "–")]]))
 
-(def echo-update {:did-update (fn [state]
+#_(def echo-update {:did-update (fn [state]
                                 (let [args (:rum/args state)
                                       comp (:rum/react-component state)
                                       node (js/ReactDOM.findDOMNode comp)]
@@ -90,38 +92,36 @@
                                 )})
 
 
-(rum/defcs numeric-input < rum/static rum/reactive echo-update
-  [state {:keys [input-ref onChange min max] :as props}]
+(rum/defc numeric-input < rum/static rum/reactive           ;echo-update
+  [{:keys [input-ref onChange min max error-color color] :or {error-color "red" color "black"} :as props}]
 
 
   (let [value (rum/react input-ref)]
 
-    [:div {:id "numeric-input"
-           :class-name (:numeric-input style)
-           ;:style
-           #_{:width      "130px"
-            :tab-index  1
-            :selectable true}
-               :on-key-down #(let [key-code (.. % -nativeEvent -code)]
-                               (handle-inc value onChange min max
-                                           (cond
-                                             (= "ArrowRight" key-code) 5
-                                             (= "ArrowUp" key-code) 1
-                                             (= "ArrowDown" key-code) -1
-                                             (= "ArrowLeft" key-code) -5
-                                             :else 0)))}
+    [:div {:id          "numeric-input"
+           :style       {:width      "130px"
+                         :tab-index  1
+                         :selectable true}
+           :on-key-down #(let [key-code (.. % -nativeEvent -code)]
+                           (handle-inc value onChange min max
+                             (cond
+                               (= "ArrowRight" key-code) 5
+                               (= "ArrowUp" key-code) 1
+                               (= "ArrowDown" key-code) -1
+                               (= "ArrowLeft" key-code) -5
+                               :else 0)))}
      [:button-group.form-control
       (inc-dec-button (assoc props :increment -1 :cursor input-ref))
       [:input
        {:type      "text"
-        :value     value                                    ;(str (if (<= value max) value (if (>= value min) value min)))
-        :on-click  (partial handle-numeric-input min max onChange)
-        :on-change (partial handle-numeric-input min max onChange)
+        :value     value
+        :on-click  (partial handle-numeric-input min max color onChange)
+        :on-change (partial handle-numeric-input min max color onChange)
         :style     {:width            "58px" :height "36px" :font-size "14px"
                     :border-top       "2px solid #ddd"
                     :border-left      "2px solid #ddd"
                     :background-color (if (not= value "") "#CCEEF8" "#fff")
-                    :color            (if (<= min value max) "black" "red")
+                    :color            (if (<= min value max) color error-color)
                     :padding          "0 0 4px 0"
                     :text-align       "center"
                     :font-weight      "bold"}
