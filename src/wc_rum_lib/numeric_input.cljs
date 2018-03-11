@@ -17,10 +17,12 @@
 
 (defn error? [value] (or (nil? value) (= "" value) (js/isNaN value)))
 
+(def timer (atom nil))
+
 (defn handle-numeric-input [min max onChange e]
-  (let [value (js/parseInt (.. e -target -value))
+  (let [el (-> e .-target)
+        value (js/parseInt (.. e -target -value))
         value (if (error? value) min value)
-        ;value (if (<= value max) (if (>= value min) value min) max)
         ]
     ; This is tricky;
     ;
@@ -28,11 +30,16 @@
     ; that the React value has not changed and so we don't get another component update in which to
     ; reset the visible 1003 back to 100. So we must handle overflows and echo them to the DOM
     ; before dispatching them.
-    (when-not (<= min value max)
-      (let [v (if (> min value) min max)
+    (if (<= min value max)
+      (when @timer (js/clearTimeout @timer))
+      (let [v nil
             src-element (-> e .-nativeEvent .-srcElement)]
         (.log js/console "value " v)
-        (js/setTimeout #(goog.object.set src-element "value" (str v)) 1000)
+        (reset! timer (js/setTimeout #(do
+                                        (goog.object.set el "value" nil) ;(str v))
+                                        (goog.object.set (goog.object.get src-element "style") "color" "black")
+                                        ;(.log js/console "el" (.. src-element -style -color))
+                                        ) 500))
         (onChange (str v))))
 
     ; dispatch the clipped value.

@@ -14,7 +14,7 @@
 (defcard rum-card-test
   (basic-rum-test))
 
-(def n (atom 0))
+(def n (atom 20))
 
 (defcard numeric-input-1
   (numeric-input {:input-ref n
