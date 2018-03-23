@@ -3,24 +3,32 @@
    [rum.core :as rum]
    [devcards.core :refer-macros [defcard-doc defcard deftest]]
    [sablono.core :as sab :include-macros true]
-   [wc-rum-lib.numeric-input :refer [numeric-input]])
+   [wc-rum-lib.numeric-input :refer [numeric-input]]
+   [wc-rum-lib.bs3 :refer [modal simple-header simple-body simple-footer]]
+   )
   )
 
 (enable-console-print!)
 
 (rum/defc basic-rum-test []
-  [:div "Hi"])
+  [:#placeholder "Placeholder"])
 
 (defcard rum-card-test
   (basic-rum-test))
 
 (def n (atom 20))
 
-(defcard numeric-input-1
+(defcard numeric-input
   (numeric-input {:input-ref n
                   :onChange #(reset! n %)
                   :min 20
                   :max 95}))
+
+
+(def close-handler identity)
+
+(defcard bs3-modal
+  (modal "placeholder" simple-header simple-body simple-footer close-handler))
 
 (defn main []
   ;; conditionally start the app based on whether the #main-app-area
