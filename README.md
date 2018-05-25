@@ -1,6 +1,6 @@
 # wc-rum-lib
 
-A Clojure library designed to support Winton Centre web stuff which uses
+A Clojure library which supports Winton Centre web components using
 the Rum React wrapper.
 
 ## Usage
@@ -17,7 +17,7 @@ Then include it as as a dependency in your project file.
 ...
 :dependencies [
   ...
-  [wc-rum-lib "0.1.1"]
+  [wc-rum-lib "0.1.4"]
   ...
   ]
 ...
@@ -42,7 +42,7 @@ and require what you need, e.g.
 
 ## License
 
-Copyright © 2018 FIXME
+Copyright © 2018 University of Cambridge
 
 Distributed under the Eclipse Public License either version 1.0 or (at
 your option) any later version.
