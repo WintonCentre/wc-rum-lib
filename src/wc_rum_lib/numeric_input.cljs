@@ -29,7 +29,7 @@
     ; _very_ tricky to force in-range values that are editable here since they are not in-range while
     ; partially entered. Hence the 500ms timeout needed to allow entry of a valid value. We aim to flag
     ; incomplete or bad values in red, and delete them after 500ms.
-    (if (and (not (error? value)) (<= min value max))
+    #_(if (and (not (error? value)) (<= min value max))
       ; in range
       (when @timer (js/clearTimeout @timer))
 

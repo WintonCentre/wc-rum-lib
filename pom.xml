@@ -3,7 +3,7 @@
   <groupId>wc-rum-lib</groupId>
   <artifactId>wc-rum-lib</artifactId>
   <packaging>jar</packaging>
-  <version>0.1.4</version>
+  <version>0.1.5</version>
   <name>wc-rum-lib</name>
   <description>FIXME: write description</description>
   <url>https://github.com/wintoncentre/wc-rum-lib</url>
@@ -16,7 +16,7 @@
   <scm>
     <connection>scm:git:git://github.com/WintonCentre/wc-rum-lib.git</connection>
     <developerConnection>scm:git:ssh://git@github.com/WintonCentre/wc-rum-lib.git</developerConnection>
-    <tag>f018176d0aa375b79837e1f5410a7620ff431167
+    <tag>359c2a2133f4934540a799dc15af4dc461ebdd08
 </tag>
     <url>https://github.com/WintonCentre/wc-rum-lib</url>
   </scm>
