@@ -2,10 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="213df8a2-d6c9-48b5-a9b0-e642ea6cb25b" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project.clj" beforeDir="false" afterPath="$PROJECT_DIR$/project.clj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/wc_rum_lib/numeric_input.cljs" beforeDir="false" afterPath="$PROJECT_DIR$/src/wc_rum_lib/numeric_input.cljs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/wc-rum-lib.iml" beforeDir="false" afterPath="$PROJECT_DIR$/wc-rum-lib.iml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -50,8 +46,8 @@
           <file leaf-file-name="project.clj" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/project.clj">
               <provider selected="true" editor-type-id="text-editor">
-                <state>
-                  <caret column="29" selection-start-column="29" selection-end-column="29" />
+                <state relative-caret-position="855">
+                  <caret line="57" column="3" lean-forward="true" selection-start-line="57" selection-start-column="3" selection-end-line="57" selection-end-column="3" />
                 </state>
               </provider>
             </entry>
@@ -208,17 +204,6 @@
             <path>
               <item name="wc-rum-lib" type="b2602c69:ProjectViewProjectNode" />
               <item name="wc-rum-lib" type="462c0819:PsiDirectoryNode" />
-              <item name=".idea" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="wc-rum-lib" type="b2602c69:ProjectViewProjectNode" />
-              <item name="wc-rum-lib" type="462c0819:PsiDirectoryNode" />
-              <item name=".idea" type="462c0819:PsiDirectoryNode" />
-              <item name="inspectionProfiles" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="wc-rum-lib" type="b2602c69:ProjectViewProjectNode" />
-              <item name="wc-rum-lib" type="462c0819:PsiDirectoryNode" />
               <item name="dev" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -276,7 +261,7 @@
       <recent name="$PROJECT_DIR$/src" />
     </key>
   </component>
-  <component name="ReplState" timestamp="1527688666296">{:repl-history {:ide [], :local [{:command &quot;(def my-hashmap {:a \&quot;A\&quot; :b \&quot;B\&quot; :c \&quot;C\&quot; :d \&quot;D\&quot;})\n&quot;, :offset 47, :ns &quot;devcards:cljs.user&quot;} {:command &quot;(let [{:keys [a b not-found], :or {not-found \&quot;:)\&quot;}, :as all} my-hashmap]\n  (println a b not-found all))&quot;, :offset 103, :ns &quot;devcards:cljs.user&quot;} {:command &quot;(use 'figwheel-sidecar.repl-api)\n(start-figwheel!)                                           ;; &lt;-- fetches configuration\n(cljs-repl)&quot;, :offset 133, :ns &quot;user&quot;} {:command &quot;(load \&quot;script/repl.clj\&quot;)&quot;, :offset 22, :ns &quot;user&quot;} {:command &quot;(load \&quot;script/repl\&quot;)&quot;, :offset 18, :ns &quot;user&quot;} {:command &quot;(cljs-repl)&quot;, :offset 10, :ns &quot;user&quot;} {:command &quot;(fig-start)&quot;, :offset 10, :ns &quot;user&quot;} {:command &quot;(:incdec-l style)&quot;, :offset 16, :ns &quot;devcards:wc-rum-lib.numeric-input&quot;} {:command &quot;(js/setTimeout #(js/alert \&quot;foo\&quot;) 1000)&quot;, :offset 37, :ns &quot;devcards:wc-rum-lib.numeric-input&quot;}], :remote []}}</component>
+  <component name="ReplState" timestamp="1527688856080">{:repl-history {:ide [], :local [{:command &quot;(def my-hashmap {:a \&quot;A\&quot; :b \&quot;B\&quot; :c \&quot;C\&quot; :d \&quot;D\&quot;})\n&quot;, :offset 47, :ns &quot;devcards:cljs.user&quot;} {:command &quot;(let [{:keys [a b not-found], :or {not-found \&quot;:)\&quot;}, :as all} my-hashmap]\n  (println a b not-found all))&quot;, :offset 103, :ns &quot;devcards:cljs.user&quot;} {:command &quot;(use 'figwheel-sidecar.repl-api)\n(start-figwheel!)                                           ;; &lt;-- fetches configuration\n(cljs-repl)&quot;, :offset 133, :ns &quot;user&quot;} {:command &quot;(load \&quot;script/repl.clj\&quot;)&quot;, :offset 22, :ns &quot;user&quot;} {:command &quot;(load \&quot;script/repl\&quot;)&quot;, :offset 18, :ns &quot;user&quot;} {:command &quot;(cljs-repl)&quot;, :offset 10, :ns &quot;user&quot;} {:command &quot;(fig-start)&quot;, :offset 10, :ns &quot;user&quot;} {:command &quot;(:incdec-l style)&quot;, :offset 16, :ns &quot;devcards:wc-rum-lib.numeric-input&quot;} {:command &quot;(js/setTimeout #(js/alert \&quot;foo\&quot;) 1000)&quot;, :offset 37, :ns &quot;devcards:wc-rum-lib.numeric-input&quot;}], :remote []}}</component>
   <component name="RunDashboard">
     <option name="ruleStates">
       <list>
@@ -318,9 +303,9 @@
       <window_info anchor="bottom" id="Run" order="2" sideWeight="0.48847377" weight="0.32845646" />
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="right" id="Leiningen" order="5" sideWeight="0.4956427" weight="0.26344743" />
-      <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.4674086" visible="true" weight="0.22238478" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="9" sideWeight="0.4674086" visible="true" weight="0.22238478" />
       <window_info id="Designer" order="2" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18600954" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18600954" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -725,8 +710,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/project.clj">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="29" selection-start-column="29" selection-end-column="29" />
+        <state relative-caret-position="855">
+          <caret line="57" column="3" lean-forward="true" selection-start-line="57" selection-start-column="3" selection-end-line="57" selection-end-column="3" />
         </state>
       </provider>
     </entry>
