@@ -128,7 +128,7 @@
                     :color            (if (<= min value max) color error-color)
                     :padding          "0 0 4px 0"
                     :text-align       "center"
-                    :font-weight      "bold"}
+                    #_#_:font-weight      "bold"}
         }]
       (inc-dec-button (assoc props :increment 1 :cursor input-ref))
       ]]
