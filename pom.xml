@@ -3,7 +3,7 @@
   <groupId>wc-rum-lib</groupId>
   <artifactId>wc-rum-lib</artifactId>
   <packaging>jar</packaging>
-  <version>0.1.6</version>
+  <version>0.1.7-SNAPSHOT</version>
   <name>wc-rum-lib</name>
   <description>FIXME: write description</description>
   <url>https://github.com/wintoncentre/wc-rum-lib</url>
@@ -14,11 +14,10 @@
     </license>
   </licenses>
   <scm>
+    <url>https://github.com/WintonCentre/wc-rum-lib</url>
     <connection>scm:git:git://github.com/WintonCentre/wc-rum-lib.git</connection>
     <developerConnection>scm:git:ssh://git@github.com/WintonCentre/wc-rum-lib.git</developerConnection>
-    <tag>e6891de145e93aa43138923a7a711283643df1af
-</tag>
-    <url>https://github.com/WintonCentre/wc-rum-lib</url>
+    <tag>16eb03bafbe47af03a53816be378b88a0decefcd</tag>
   </scm>
   <build>
     <sourceDirectory>src</sourceDirectory>
@@ -70,7 +69,7 @@
     </repository>
     <repository>
       <id>clojars</id>
-      <url>https://clojars.org/repo/</url>
+      <url>https://repo.clojars.org/</url>
       <snapshots>
         <enabled>true</enabled>
       </snapshots>
@@ -104,8 +103,8 @@
       <version>1.1.7</version>
       <exclusions>
         <exclusion>
-          <groupId>org.clojure</groupId>
           <artifactId>clojure</artifactId>
+          <groupId>org.clojure</groupId>
         </exclusion>
       </exclusions>
     </dependency>

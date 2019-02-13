@@ -112,9 +112,6 @@
                                (= "ArrowLeft" key-code) -5
                                :else 0)))}
      [:button-group.form-control
-      {:aria-valuenow value
-       :aria-valuemin min
-       :aria-valuemax max}
       (inc-dec-button (assoc props :increment -1 :cursor input-ref))
       [:input
        {:type      "text"
