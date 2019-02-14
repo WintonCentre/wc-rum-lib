@@ -1,3 +1,5 @@
+wc-rum-lib.iml
+.idea/
 /bower-components
 .DS_Store
 figwheel_server.log

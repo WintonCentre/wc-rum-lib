@@ -65,7 +65,7 @@
   [state
    {:keys [cursor increment onChange min max]
     :as   props}]
-  (let [start-timer (fn [e] (js/setInterval #(handle-inc @cursor onChange min max increment) 100))]
+  (let [start-timer (fn [e] (js/setInterval #(handle-inc @cursor onChange min max increment) 200))]
     [:span {:class-name "incdec"}
      [:a {:class-name    (str (if (pos? increment) "right" "left") " btn btn-default") ;:style
           #_{:border-top-right-radius    left-r
