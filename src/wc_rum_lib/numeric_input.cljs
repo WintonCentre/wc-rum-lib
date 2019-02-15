@@ -98,8 +98,8 @@
 
 
   (let [value (rum/react input-ref)
-        min (id (fn? min) (min) min)
-        max (id (fn? max) (max) max)]
+        min (if (fn? min) (min) min)
+        max (if (fn? max) (max) max)]
     ; min and max can be functions, so in particular they may be calls to rum/react
 
     [:div {:id          "numeric-input"
