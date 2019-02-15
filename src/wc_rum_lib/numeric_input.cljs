@@ -97,7 +97,10 @@
   [{:keys [input-ref onChange min max error-color color] :or {error-color "red" color "black"} :as props}]
 
 
-  (let [value (rum/react input-ref)]
+  (let [value (rum/react input-ref)
+        min (id (fn? min) (min) min)
+        max (id (fn? max) (max) max)]
+    ; min and max can be functions, so in particular they may be calls to rum/react
 
     [:div {:id          "numeric-input"
            :style       {:width      "130px"
@@ -115,7 +118,7 @@
       (inc-dec-button (assoc props :increment -1 :cursor input-ref))
       [:input
        {:type      "text"
-        :value     value
+        :value     (if (nil? value) "" value)
         :on-click  (partial handle-numeric-input min max color onChange)
         :on-change (partial handle-numeric-input min max color onChange)
         :style     {:width            "58px" :height "36px" :font-size "14px"
@@ -125,7 +128,7 @@
                     :color            (if (<= min value max) color error-color)
                     :padding          "0 0 4px 0"
                     :text-align       "center"
-                    #_#_:font-weight      "bold"}
+                    #_#_:font-weight "bold"}
         }]
       (inc-dec-button (assoc props :increment 1 :cursor input-ref))
       ]]
