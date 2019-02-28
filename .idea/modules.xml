@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/wc-rum-lib.iml" filepath="$PROJECT_DIR$/wc-rum-lib.iml" />
+      <module fileurl="file://$PROJECT_DIR$/wc-rum-lib-1.iml" filepath="$PROJECT_DIR$/wc-rum-lib-1.iml" />
     </modules>
   </component>
 </project>
