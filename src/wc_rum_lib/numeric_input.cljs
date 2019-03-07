@@ -219,7 +219,7 @@
                                            (= "ArrowDown" key-code) -1
                                            :else 0)
                                          onChange))}
-     [:button-group.form-control
+     [:.button-group.form-control
       (inc-dec-button (assoc props :nmin nmin :nmax nmax :precision precision :increment -1 :cursor input-ref))
       [:input
        {:type      "text"
