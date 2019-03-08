@@ -1,4 +1,4 @@
-(defproject wc-rum-lib "0.1.15"
+(defproject wc-rum-lib "0.1.16"
   :description "FIXME: write description"
   :url "https://github.com/wintoncentre/wc-rum-lib"
   :license {:name "Eclipse Public License"

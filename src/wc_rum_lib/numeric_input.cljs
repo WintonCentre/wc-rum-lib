@@ -207,7 +207,7 @@
                    onChange e))]
 
     [:div {:class       "numeric-input"
-           :style       {:width      "130px"
+           :style       {:min-width      "100px"
                          :tab-index  1
                          :selectable true}
            :on-key-down #(let [key-code (.. % -nativeEvent -code)]
@@ -219,7 +219,7 @@
                                            (= "ArrowDown" key-code) -1
                                            :else 0)
                                          onChange))}
-     [:.button-group.form-control
+     [:.button-group
       (inc-dec-button (assoc props :nmin nmin :nmax nmax :precision precision :increment -1 :cursor input-ref))
       [:input
        {:type      "text"
