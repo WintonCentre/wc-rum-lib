@@ -1,5 +1,5 @@
 (defproject wc-rum-lib "0.1.16"
-  :description "FIXME: write description"
+  :description "Winto Rumish UI components"
   :url "https://github.com/wintoncentre/wc-rum-lib"
   :license {:name "Eclipse Public License"
             :url  "http://www.eclipse.org/legal/epl-v10.html"}
@@ -53,6 +53,9 @@
                    :repl-options {; for nREPL dev you really need to limit output
                                   :init             (set! *print-length* 50)
                                   :nrepl-middleware [cemerick.piggieback/wrap-cljs-repl]}}}
+
+  :deploy-repositories [["releases" :clojars]
+                        ["snapshots" :clojars]]
 
 
   )
