@@ -1,4 +1,4 @@
-(defproject wc-rum-lib "0.1.16"
+(defproject wc-rum-lib "0.1.17"
   :description "Winto Rumish UI components"
   :url "https://github.com/wintoncentre/wc-rum-lib"
   :license {:name "Eclipse Public License"
